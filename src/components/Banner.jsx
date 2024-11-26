@@ -2,9 +2,9 @@
 import bannerImg from '../assets/images/more/3.png'
 export default function Banner() {
     return (
-        <div className='relative flex justify-end items-center'>
+        <div className='relative flex justify-end items-center h-[650px] overflow-hidden'>
 
-            <img src={bannerImg} alt="" />
+            <img src={bannerImg} alt="" className='object-cover' />
 
             <div className='absolute flex flex-col gap-5 w-1/2'>
                 <h2 className='font-rancho text-6xl text-white'>Would you like a Cup of Delicious Coffee?</h2>
@@ -13,6 +13,7 @@ export default function Banner() {
                 <div>
                     <button className='btn rounded-sm  text-xl font-rancho bg-[#E3B577] hover:bg-transparent border-[#E3B577] hover:border-[#E3B577] hover:text-white'>Learn More</button>
                 </div>
+
             </div>
         </div>
 
