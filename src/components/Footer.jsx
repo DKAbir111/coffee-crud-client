@@ -37,7 +37,7 @@ export default function Footer() {
 
                     <div className='w-2/5 flex flex-col gap-5'>
                         <h2 className='font-rancho text-4xl text-[#331A15] font-semibold'>Connect with Us</h2>
-                        <form className='flex flex-col gap-3'>
+                        <form className='flex flex-col gap-3 font-raleway'>
                             <input type="text" placeholder="Name" className="input" />
                             <input type="text" placeholder="Email" className="input" />
                             <input type="text" placeholder="Message" className="input h-36" />
