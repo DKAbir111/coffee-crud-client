@@ -6,6 +6,10 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaLocationDot } from "r
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 export default function Footer() {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('Form submitted!-> message from footer')
+    }
     return (
         <div>
             <div className='relative flex justify-center items-center'>
@@ -37,7 +41,7 @@ export default function Footer() {
 
                     <div className='w-2/5 flex flex-col gap-5'>
                         <h2 className='font-rancho text-4xl text-[#331A15] font-semibold'>Connect with Us</h2>
-                        <form className='flex flex-col gap-3 font-raleway'>
+                        <form className='flex flex-col gap-3 font-raleway' onSubmit={handleSubmit}>
                             <input type="text" placeholder="Name" className="input" />
                             <input type="text" placeholder="Email" className="input" />
                             <input type="text" placeholder="Message" className="input h-36" />
