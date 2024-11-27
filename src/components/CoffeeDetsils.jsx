@@ -1,5 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import bgImage from '../assets/images/more/11.png'
 
 
 export default function CoffeeDetails() {
@@ -7,6 +8,7 @@ export default function CoffeeDetails() {
     const navigate = useNavigate()
     return (
         <div className="relative flex flex-col items-center px-5 py-10">
+            <img src={bgImage} alt="" className="absolute -z-10" />
             <button onClick={() => navigate(-1)} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black absolute top-7 left-36'><FaArrowLeft />Back to Home</button>
             {/* Main Content */}
             <div className="bg-[#F4F3F0] shadow-sm rounded-lg p-10 flex gap-10 items-center max-w-6xl w-full mt-20">
