@@ -4,6 +4,7 @@ import Error from "../components/Error";
 import HomeLayout from "../layouts/HomeLayout";
 import AddCoffee from "../components/AddCoffee";
 import UpdateCoffee from "../components/UpdateCoffee";
+import CoffeeDetails from "../components/CoffeeDetsils";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path: '/updatecoffee/:id',
                 element: <UpdateCoffee />,
+                loader: async ({ params }) => await fetch(`http://localhost:5001/coffee/${params.id}`)
+            },
+            {
+                path: '/coffeedetails/:id',
+                element: <CoffeeDetails />,
                 loader: async ({ params }) => await fetch(`http://localhost:5001/coffee/${params.id}`)
             }
         ]
