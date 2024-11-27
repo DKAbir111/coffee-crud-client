@@ -1,5 +1,8 @@
 
+import { toast } from 'react-toastify';
 import bgImage from '../assets/images/more/11.png'
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 export default function AddCoffee() {
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -10,6 +13,7 @@ export default function AddCoffee() {
         const taste = from.taste.value;
         const category = from.category.value;
         const details = from.details.value;
+        const price = from.price.value;
         const photo = from.photo.value;
         const newCoffee = {
             name,
@@ -19,6 +23,7 @@ export default function AddCoffee() {
             category,
             details,
             photo,
+            price
         }
         fetch('http://localhost:5001/addcoffee', {
             method: 'POST',
@@ -30,15 +35,21 @@ export default function AddCoffee() {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.insertedId) {
+                    toast.success("New Coffee added");
+                    from.reset()
+                }
             })
-        console.log('Form submitted!', newCoffee)
     }
+    const navigate = useNavigate()
     return (
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center mb-20">
             <img src={bgImage} alt="" />
-            <div className='w-9/12 mx-auto absolute bg-[#F4F3F0] px-24 py-10'>
+            <button onClick={() => navigate('/')} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black absolute top-7 left-[180px]'><FaArrowLeft />Back to Home</button>
+            <div className='w-9/12 mx-auto absolute bg-[#F4F3F0] px-24 py-10 mt-40'>
+
                 <div className='flex flex-col gap-3 mb-4'>
-                    <h2 className="text-3xl font-rancho text-center text-[#331A15]">Follow on Instagram</h2>
+                    <h2 className="text-3xl font-rancho text-center text-[#331A15]">Add New Coffee</h2>
                     <p className='font-raleway text-center w-10/12 mx-auto'>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
 
                 </div>
@@ -79,7 +90,13 @@ export default function AddCoffee() {
                         </label>
                         <input type="text" placeholder="Enter coffee details" name='details' className="input rounded-sm" required />
                     </div>
-                    <div className="form-control col-span-2">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Price</span>
+                        </label>
+                        <input type="text" placeholder="Enter price" name='price' className="input rounded-sm" required />
+                    </div>
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
