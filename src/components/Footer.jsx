@@ -12,10 +12,10 @@ export default function Footer() {
     }
     return (
         <div>
-            <div className='relative flex justify-center items-center'>
-                <img src={footerImage} alt="Footer image" />
-                <div className='flex justify-evenly absolute items-center'>
-                    <div className='flex flex-col gap-5 w-1/2'>
+            <div className='relative flex justify-center items-center h-[900px] md:h-[500px]'>
+                <img src={footerImage} alt="Footer image" className='object-cover h-full w-full' />
+                <div className='p-3 flex gap-5 flex-col md:flex-row justify-evenly absolute items-center'>
+                    <div className='flex flex-col gap-5 md:w-1/2'>
                         <img src={logo} alt="Logo" className='w-16' />
                         <h2 className='font-rancho text-4xl text-[#331A15] font-semibold'>Espresso Emporium</h2>
                         <p className='font-raleway'>Always ready to be your friend. Come & Contact with us to share your memorable moments, to share with your best companion.</p>
@@ -39,13 +39,13 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className='w-2/5 flex flex-col gap-5'>
+                    <div className='w-full md:w-2/5 flex flex-col gap-5'>
                         <h2 className='font-rancho text-4xl text-[#331A15] font-semibold'>Connect with Us</h2>
                         <form className='flex flex-col gap-3 font-raleway' onSubmit={handleSubmit}>
                             <input type="text" placeholder="Name" className="input" />
                             <input type="text" placeholder="Email" className="input" />
                             <input type="text" placeholder="Message" className="input h-36" />
-                            <button type="submit" className="btn btn-outline text-lg text-[#331A15] hover:bg-[#331A15] hover:border-[#331A15] border-[#331A15] font-rancho w-1/3 rounded-full">Send Message</button>
+                            <button type="submit" className="btn btn-outline text-lg text-[#331A15] hover:bg-[#331A15] hover:border-[#331A15] border-[#331A15] font-rancho lg:w-1/3 rounded-full">Send Message</button>
                         </form>
                     </div>
                 </div>

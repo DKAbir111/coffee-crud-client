@@ -9,7 +9,7 @@ export default function FollowOnInstra() {
                 .then(data => setCups(data)))
     }, [])
     return (
-        <div className="my-10 w-10/12 mx-auto">
+        <div className="my-10 p-3 lg:w-10/12 mx-auto">
             <div className="my-10">
                 <p className="font-raleway text-center">Follow Us Now</p>
                 <h2 className="text-3xl font-rancho text-center text-[#331A15]">Follow on Instagram</h2>

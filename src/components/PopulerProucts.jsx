@@ -41,13 +41,13 @@ export default function PopulerProucts() {
     return (
         <div className="mx-auto mb-20 relative" id="main">
             <img src={backgroundImg} alt="" className="absolute -z-10" />
-            <div className="w-10/12 mx-auto">
+            <div className="lg:w-10/12 mx-auto">
                 <div className="my-10 flex justify-center items-center flex-col gap-3">
                     <p className="font-raleway text-center">--- Sip & Savor ---</p>
                     <h2 className="text-3xl font-rancho text-center text-[#331A15] font-bold">Our Popular Products</h2>
                     <Link to={'/addcoffee'} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black'>Add Coffee <GiCoffeeCup /></Link>
                 </div>
-                <div className="grid grid-cols-2 gap-7">
+                <div className="p-3 grid md:grid-cols-2 gap-3 lg:gap-7">
                     {
                         coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee} handleDelete={handleDelete} />)
                     }

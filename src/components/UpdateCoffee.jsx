@@ -48,14 +48,14 @@ export default function UpdateCoffee() {
     }
     const navigate = useNavigate()
     return (
-        <div className="relative flex justify-center items-center mb-20">
+        <div className="relative flex justify-center items-center mb-20 h-[800px]">
             <img src={bgImage} alt="" />
-            <button onClick={() => navigate(-1)} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black absolute top-7 left-[180px]'><FaArrowLeft />Back to Home</button>
-            <div className='w-9/12 mx-auto absolute bg-[#F4F3F0] px-24 py-10 mt-40'>
+            <button onClick={() => navigate(-1)} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black absolute top-7 left-3 lg:left-[180px]'><FaArrowLeft />Back to Home</button>
+            <div className='lg:w-9/12 mx-auto absolute bg-[#F4F3F0] p-3 lg:px-24 py-10 mt-40'>
 
                 <div className='flex flex-col gap-3 mb-4'>
                     <h2 className="text-3xl font-rancho text-center text-[#331A15]">Update Existing Coffee Details</h2>
-                    <p className='font-raleway text-center w-10/12 mx-auto'>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+                    <p className='font-raleway text-center lg:w-10/12 mx-auto'>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
 
                 </div>
                 <form action="" className='grid grid-cols-2 gap-5 font-raleway' onSubmit={handleSubmit}>

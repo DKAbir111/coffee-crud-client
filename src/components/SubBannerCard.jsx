@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export default function SubBannerCard({ image, content, title }) {
     return (
-        <div className="p-7 flex flex-col gap-3">
+        <div className="p-3 md:p-7 flex flex-col gap-3">
             <div>
                 <img src={image} alt="" />
             </div>

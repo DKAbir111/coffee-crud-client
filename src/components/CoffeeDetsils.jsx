@@ -11,18 +11,18 @@ export default function CoffeeDetails() {
             <img src={bgImage} alt="" className="absolute -z-10" />
             <button onClick={() => navigate(-1)} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black absolute top-7 left-36'><FaArrowLeft />Back to Home</button>
             {/* Main Content */}
-            <div className="bg-[#F4F3F0] shadow-sm rounded-lg p-10 flex gap-10 items-center max-w-6xl w-full mt-20">
+            <div className="bg-[#F4F3F0] shadow-sm rounded-lg p-5 lg:p-10 flex flex-col md:flex-row lg:gap-10 items-center max-w-6xl w-full mt-20">
                 {/* Image Section */}
-                <div className="w-1/2 flex justify-center">
+                <div className="md:w-1/2 flex justify-center">
                     <img
                         src={coffee.photo}
                         alt={coffee.name}
-                        className="rounded-md object-cover w-1/2"
+                        className="rounded-md object-cover md:w-1/2"
                     />
                 </div>
 
                 {/* Details Section */}
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <h2 className="text-4xl font-rancho text-[#4a2c21] mb-5 drop-shadow-lg">
                         Niceties
                     </h2>
