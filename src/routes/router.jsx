@@ -15,7 +15,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <HomeLayout />,
-                loader: async () => await fetch('http://localhost:5001/coffees'),
+                loader: async () => await fetch('https://crud-coffee-server.onrender.com/coffees'),
             },
             {
                 path: '/addcoffee',
@@ -24,12 +24,12 @@ const router = createBrowserRouter([
             {
                 path: '/updatecoffee/:id',
                 element: <UpdateCoffee />,
-                loader: async ({ params }) => await fetch(`http://localhost:5001/coffee/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://crud-coffee-server.onrender.com/coffee/${params.id}`)
             },
             {
                 path: '/coffeedetails/:id',
                 element: <CoffeeDetails />,
-                loader: async ({ params }) => await fetch(`http://localhost:5001/coffee/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://crud-coffee-server.onrender.com/coffee/${params.id}`)
             }
         ]
     },

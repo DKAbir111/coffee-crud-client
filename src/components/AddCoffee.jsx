@@ -25,7 +25,7 @@ export default function AddCoffee() {
             photo,
             price
         }
-        fetch('http://localhost:5001/addcoffee', {
+        fetch('https://crud-coffee-server.onrender.com/addcoffee', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

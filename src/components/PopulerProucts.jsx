@@ -24,7 +24,7 @@ export default function PopulerProucts() {
                     text: "Your file has been deleted.",
                     icon: "success"
                 });
-                fetch(`http://localhost:5001/deletecoffee/${id}`, {
+                fetch(`https://crud-coffee-server.onrender.com/deletecoffee/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

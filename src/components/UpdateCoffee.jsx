@@ -26,7 +26,7 @@ export default function UpdateCoffee() {
             photo,
             price
         }
-        fetch(`http://localhost:5001/coffee/${_id}`, {
+        fetch(`https://crud-coffee-server.onrender.com/coffee/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
