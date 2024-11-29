@@ -64,9 +64,11 @@ export default function UpdateCoffee() {
                 if (data.modifiedCount > 0) {
                     toast.success('Coffee updated successfully')
                     navigate(-1)
+                    return;
                 }
-                if (data.matchedCount > 0) {
+                else {
                     toast.error('No changes made.')
+                    return
                 }
 
             })

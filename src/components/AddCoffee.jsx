@@ -42,7 +42,7 @@ export default function AddCoffee() {
         const category = from.category.value;
         const details = from.details.value;
         const price = from.price.value;
-        const photo = from.photo.value;
+        // const photo = from.photo.value;
         const newCoffee = {
             name,
             chef,
@@ -50,7 +50,7 @@ export default function AddCoffee() {
             taste,
             category,
             details,
-            photo,
+            photo: imageUrl,
             price
         }
         fetch('https://crud-coffee-server.onrender.com/addcoffee', {
@@ -131,7 +131,7 @@ export default function AddCoffee() {
                         <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
-                        <input type="text" placeholder="Enter photo URL" defaultValue={imageUrl} name='photo' className="input rounded-sm" required />
+                        <input type="text" placeholder="Enter photo URL" value={imageUrl} name='photo' className="input rounded-sm" required />
                         <div className='absolute right-0 btn text-xl btn-ghost top-9 rounded-sm' onClick={() => imageRef.current.click()}><FaFileUpload /> </div>
                     </div>
                     <input type="file" ref={imageRef} placeholder="Enter photo URL" name='photo' onChange={handleFileUpload} className="hidden" required />
