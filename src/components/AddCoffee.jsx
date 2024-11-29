@@ -3,7 +3,34 @@ import { toast } from 'react-toastify';
 import bgImage from '../assets/images/more/11.png'
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { FaFileUpload } from "react-icons/fa";
+import { useRef, useState } from 'react';
+
 export default function AddCoffee() {
+    const imageRef = useRef(null)
+    const [imageUrl, setImageURl] = useState('')
+    const handleFileUpload = (event) => {
+        const file = event.target.files[0];
+        console.log(event.target.files[0])
+        if (!file) return;
+        const formData = new FormData();
+        formData.append('image', file)
+        try {
+            fetch('https://api.imgbb.com/1/upload?key=2420a782041f8641886d2072d92e2162', {
+                method: 'POST',
+                body: formData
+
+            }).then(res => res.json())
+                .then(data => {
+                    setImageURl(data.data.
+                        display_url)
+
+                })
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
         const from = e.target;
@@ -98,12 +125,14 @@ export default function AddCoffee() {
                         </label>
                         <input type="text" placeholder="Enter price" name='price' className="input rounded-sm" required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
-                        <input type="text" placeholder="Enter photo URL" name='photo' className="input rounded-sm" required />
+                        <input type="text" placeholder="Enter photo URL" defaultValue={imageUrl} name='photo' className="input rounded-sm" required />
+                        <div className='absolute right-0 btn text-xl btn-ghost top-9 rounded-sm' onClick={() => imageRef.current.click()}><FaFileUpload /> </div>
                     </div>
+                    <input type="file" ref={imageRef} placeholder="Enter photo URL" name='photo' onChange={handleFileUpload} className="hidden" required />
                     <div className="form-control mt-3 col-span-2">
                         <button className="btn rounded-sm bg-[#D2B48C] border-2 border-black font-rancho text-lg">Add Coffee</button>
                     </div>
