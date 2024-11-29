@@ -5,18 +5,18 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { FaFileUpload } from "react-icons/fa";
 import { useRef, useState } from 'react';
+import Title from './Title';
 
 export default function AddCoffee() {
     const imageRef = useRef(null)
     const [imageUrl, setImageURl] = useState('')
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
-        console.log(event.target.files[0])
         if (!file) return;
         const formData = new FormData();
         formData.append('image', file)
         try {
-            fetch('https://api.imgbb.com/1/upload?key=2420a782041f8641886d2072d92e2162', {
+            fetch('https://api.imgbb.com/1/upload?key=5c73e82c6c39c531a41a2361f2681168', {
                 method: 'POST',
                 body: formData
 
@@ -29,6 +29,7 @@ export default function AddCoffee() {
 
         } catch (err) {
             console.error(err);
+            return;
         }
     }
     const handleSubmit = (e) => {
@@ -71,6 +72,7 @@ export default function AddCoffee() {
     const navigate = useNavigate()
     return (
         <div className="relative flex justify-center p-7 items-center h-[800px] mb-20">
+            <Title title='AddCoffee' />
             <img src={bgImage} alt="" />
             <div className='absolute top-5 flex left-3 md:left-7 lg:left-44'>
                 <button onClick={() => navigate('/')} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black'><FaArrowLeft />Back to Home</button>

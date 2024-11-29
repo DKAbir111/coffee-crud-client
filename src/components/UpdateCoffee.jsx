@@ -1,10 +1,35 @@
 import { toast } from 'react-toastify';
 import bgImage from '../assets/images/more/11.png'
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaFileUpload } from "react-icons/fa";
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import Title from './Title';
 export default function UpdateCoffee() {
     const coffee = useLoaderData()
     const { _id, name, chef, supplier, taste, category, details, photo, price } = coffee
+    const [updatedPhoto, setUpdatedPhoto] = useState(photo)
+    const imageRef = useRef(null)
+    const handleUploadPhoto = (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+        const formData = new FormData();
+        formData.append('image', file)
+        try {
+            fetch('https://api.imgbb.com/1/upload?key=5c73e82c6c39c531a41a2361f2681168', {
+                method: 'POST',
+                body: formData
+
+            }).then(res => res.json())
+                .then(data => {
+                    setUpdatedPhoto(data.data.
+                        display_url)
+                })
+
+        } catch (err) {
+            console.error(err);
+            return;
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
         const from = e.target;
@@ -49,6 +74,7 @@ export default function UpdateCoffee() {
     const navigate = useNavigate()
     return (
         <div className="relative flex justify-center items-center mb-20 h-[800px]">
+            <Title title='UpdateCoffee' />
             <img src={bgImage} alt="" />
             <button onClick={() => navigate(-1)} className='btn rounded-sm  text-xl font-rancho bg-[#E3B577]  border-black text-black absolute top-7 left-3 lg:left-[180px]'><FaArrowLeft />Back to Home</button>
             <div className='lg:w-9/12 mx-auto absolute bg-[#F4F3F0] p-3 lg:px-24 py-10 mt-40'>
@@ -101,12 +127,14 @@ export default function UpdateCoffee() {
                         </label>
                         <input type="text" defaultValue={price} placeholder="Enter price" name='price' className="input rounded-sm" required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
-                        <input type="text" defaultValue={photo} placeholder="Enter photo URL" name='photo' className="input rounded-sm" required />
+                        <input type="text" value={updatedPhoto} placeholder="Enter photo URL" name='photo' className="input rounded-sm" required />
+                        <div className='absolute right-0 btn text-xl btn-ghost top-9 rounded-sm' onClick={() => imageRef.current.click()}><FaFileUpload /> </div>
                     </div>
+                    <input type="file" name='file' ref={imageRef} onChange={handleUploadPhoto} className='hidden' />
                     <div className="form-control mt-3 col-span-2">
                         <button className="btn rounded-sm bg-[#D2B48C] border-2 border-black font-rancho text-lg">Update Coffee</button>
                     </div>

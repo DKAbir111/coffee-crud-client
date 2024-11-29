@@ -1,6 +1,7 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import bgImage from '../assets/images/more/11.png'
+import Title from "./Title";
 
 
 export default function CoffeeDetails() {
@@ -23,6 +24,7 @@ export default function CoffeeDetails() {
 
                 {/* Details Section */}
                 <div className="md:w-1/2">
+                    <Title title="Details"></Title>
                     <h2 className="text-4xl font-rancho text-[#4a2c21] mb-5 drop-shadow-lg">
                         Niceties
                     </h2>
